@@ -19,7 +19,7 @@ public class BentoBoxFlag {
 
   @Comment("ID of the flag\nthis is what player-settings are stored under,\nso other options can change while keeping their choice\nto prevent conflicts, the is prefixed with LPCONTEXT_")
   @Required
-  @Matches(value = "^[A-Z_]+$", failureMessage = "%s needs to be A-Z and _ Only (matching regex) %s")
+  @Matches(value = "^[A-Z_]+$", failureMessage = "\"{0}\" needs to be A-Z and _ Only (matching regex \"{1}\")")
   String id;
 
   @Comment("Localized name")
