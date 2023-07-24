@@ -1,0 +1,40 @@
+# BentoBox Luckperms Context Link
+
+# Custom Flags for permissions
+flags:
+-   enabled: false
+    # ID of the flag
+    # this is what player-settings are stored under,
+    # so other options can change while keeping their choice
+    # to prevent conflicts, the is prefixed with LPCONTEXT_
+    id: CUSTOM_ID
+
+    # Localized name
+    name: Custom Name
+
+    # Description in the settings menu
+    description: Custom Description
+
+    # an int representing the default rank needed or higher
+    # Owner=1000
+    # Sub-owner=900
+    # member=500
+    # trusted=400
+    # coop=200
+    # visitor=0
+    default-rank: 200
+
+    # what group this flag should go in
+    # Valid values: BASIC,ADVANCED,EXPERT,TOP_ROW
+    level: EXPERT
+
+    # What gamemodes to allow this flag in
+    # (or not allow if invert-allowlist=true)
+    # if this is empty, and invert=false, this acts as if all are enabled
+    allowed-gamemodes: []
+
+    # Whether to make allowed-gamemodes block what gamemodes this flag is available in
+    invert-allowlist: false
+
+    # minecraft:give format item for the icon
+    icon-item: minecraft:book

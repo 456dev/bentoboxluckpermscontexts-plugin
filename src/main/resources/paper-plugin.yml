@@ -1,0 +1,14 @@
+name: BentoBoxLuckpermsContexts
+version: '${version}'
+main: dev.the456gamer.bentoboxluckpermscontexts.BentoBoxLuckpermsContextsPlugin
+api-version: '${apiVersion}'
+description: "${description}"
+dependencies:
+  - name: "BentoBox"
+    required: true
+  - name: "LuckPerms"
+    required: true
+
+load-after:
+  - name: "LuckPerms"
+  - name: "BentoBox"
