@@ -101,6 +101,7 @@ public final class BentoBoxLuckpermsContextsPlugin extends JavaPlugin implements
           OutputStream out = new BufferedOutputStream(
               new FileOutputStream(configFile))) {
 
+        assert in != null;
         in.transferTo(out);
       } catch (IOException e) {
         throw new RuntimeException("unable to copy default config");

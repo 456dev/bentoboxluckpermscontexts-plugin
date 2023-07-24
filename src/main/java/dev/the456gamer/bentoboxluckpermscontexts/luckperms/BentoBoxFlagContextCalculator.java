@@ -44,7 +44,7 @@ public class BentoBoxFlagContextCalculator implements ContextCalculator<Player> 
     ImmutableContextSet.Builder builder = ImmutableContextSet.builder();
     plugin.getBentoBoxApi().getFlagsManager().getFlags().forEach(flag -> {
       if (!isInGameWorld) {
-        builder.add(CONTEXT_FLAG_PREFIX.concat(flag.getID()), Result.UNSET.key);
+        builder.add(CONTEXT_FLAG_PREFIX.concat(flag.getID()), Result.UNSET.getKey());
       } else {
         islandOptional.ifPresentOrElse(island -> {
 
@@ -54,13 +54,13 @@ public class BentoBoxFlagContextCalculator implements ContextCalculator<Player> 
             case SETTING, WORLD_SETTING -> flagValue != 0;
           };
           builder.add(CONTEXT_FLAG_PREFIX.concat(flag.getID()),
-              allowed ? Result.ALLOW.key : Result.DENY.key);
+              allowed ? Result.ALLOW.getKey() : Result.DENY.getKey());
         }, () -> {
           boolean allowed = plugin.getBentoBoxApi().getIWM().getWorldSettings(target.getWorld())
               .getWorldFlags()
               .get(flag.getID());
           builder.add(CONTEXT_FLAG_PREFIX.concat(flag.getID()),
-              allowed ? Result.ALLOW.key : Result.DENY.key);
+              allowed ? Result.ALLOW.getKey() : Result.DENY.getKey());
         });
       }
     });
@@ -72,7 +72,7 @@ public class BentoBoxFlagContextCalculator implements ContextCalculator<Player> 
     ImmutableContextSet.Builder builder = ImmutableContextSet.builder();
     plugin.getBentoBoxApi().getFlagsManager().getFlags().forEach(flag -> {
       for (Result result : Result.values()) {
-        builder.add(CONTEXT_FLAG_PREFIX.concat(flag.getID()), result.key);
+        builder.add(CONTEXT_FLAG_PREFIX.concat(flag.getID()), result.getKey());
       }
     });
     return builder.build();

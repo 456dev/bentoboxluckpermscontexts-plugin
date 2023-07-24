@@ -21,9 +21,7 @@ public class FlagHandler {
   }
 
   public void registerFlags() {
-    System.out.println("start register");
     plugin.config().getFlags().forEach(flag -> {
-      System.out.println(flag.getId());
       if (flag.isEnabled()) {
         Flag new_flag = makeFlag(flag.getId(), flag.getDefaultRank(), flag.getName(),
             flag.getDescription(),
@@ -50,9 +48,6 @@ public class FlagHandler {
                 String addonName = gameModeAddon.getDescription().getName();
                 boolean presentInList = finalGamemodeList.contains(addonName);
                 boolean shouldAdd = presentInList != invert;
-                System.out.println(
-                    "presentinlist=%s shouldadd=%s: %s".formatted(presentInList, shouldAdd,
-                        gameModeAddon.getDescription().getName()));
                 if (shouldAdd) {
                   new_flag.addGameModeAddon(gameModeAddon);
                 }
